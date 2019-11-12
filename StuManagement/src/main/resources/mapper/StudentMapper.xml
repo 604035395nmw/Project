@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.stu.dao.StudentMapper">
+
+    <select id="getStudent" resultType="org.stu.pojo.Student">
+
+select s.*,c.name from student s inner join classes c on s.classId = c.id
+  ORDER BY s.`id` ASC
+    </select>
+    <insert id="getAdd">
+          INSERT INTO `student`.`student`
+            (
+             `name`,
+             `age`,
+             `gender`,
+             `telephone`,
+             `email`,
+             `classId`)
+VALUES (
+        #{name},
+        #{age},
+        #{gender},
+        #{telephone},
+        #{email},
+        #{classId})
+    </insert>
+</mapper>
